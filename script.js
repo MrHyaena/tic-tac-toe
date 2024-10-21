@@ -14,20 +14,19 @@ function createGame(name) {
   });
 }
 
-function createPlayer(symbol) {
-  return (player = {
-    marker: symbol,
-    turnZero(field) {
-      gameboard[field] = player["marker"];
-      gameboard.turn = 1;
+function createPlayer(playerSymbol) {
+  return {
+    marker: playerSymbol,
+    turn(field) {
+      gameboard[field] = this.marker;
+      if (gameboard.turn == 0) {
+        gameboard.turn = 1;
+      } else {
+        gameboard.turn = 0;
+      }
       console.log(gameboard);
     },
-    turnOne(field) {
-      gameboard[field] = player["marker"];
-      gameboard.turn = 0;
-      console.log(gameboard);
-    },
-  });
+  };
 }
 
 let game = createGame("MyGame");
