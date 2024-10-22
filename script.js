@@ -1,11 +1,13 @@
+const startNewGame = document.querySelector("#startNewGame");
+const turnBanner = document.querySelector("#turnBanner");
+turnBanner.textContent = "Press start button!";
 startNewGame.addEventListener("click", () => {
   let myGame = createGame();
 
   // DOM manipulation
   function DOMmanipulation() {
-    const startNewGame = document.querySelector("#startNewGame");
     const boardCointainer = document.querySelector("#boardContainer");
-
+    turnBanner.textContent = "Player One's turn!";
     createBoardDOM();
 
     function createBoardDOM() {
@@ -19,19 +21,23 @@ startNewGame.addEventListener("click", () => {
         boardCointainer.appendChild(square);
 
         square.addEventListener("click", () => {
-          if (squareContent == 0) {
-            if (myGame.gameboard.turn == 0) {
-              square.textContent = "X";
-              myGame.playerOne.turn(squarePosition);
-              console.log(squareContent);
-              squareContent = 1;
-              console.log(squareContent);
-              square.style.backgroundColor = "grey";
-            } else {
-              square.textContent = "O";
-              myGame.playerTwo.turn(squarePosition);
-              squareContent = 1;
-              square.style.backgroundColor = "grey";
+          if (myGame.gameboard.turn == 0 || myGame.gameboard.turn == 1) {
+            if (squareContent == 0) {
+              if (myGame.gameboard.turn == 0) {
+                square.textContent = "X";
+                turnBanner.textContent = "Player One's turn!";
+                myGame.playerOne.turn(squarePosition);
+
+                squareContent = 1;
+
+                square.style.backgroundColor = "rgb(201, 165, 191)";
+              } else if (myGame.gameboard.turn == 1) {
+                square.textContent = "O";
+                turnBanner.textContent = "Player Two's turn!";
+                myGame.playerTwo.turn(squarePosition);
+                squareContent = 1;
+                square.style.backgroundColor = "rgb(201, 165, 191)";
+              }
             }
           }
         });
@@ -81,11 +87,13 @@ startNewGame.addEventListener("click", () => {
           if (myGame.gameboard.turn == 0) {
             myGame.gameboard.turn = 1;
             checkWinner();
-          } else {
+          } else if (myGame.gameboard.turn == 1) {
             myGame.gameboard.turn = 0;
             checkWinner();
+          } else {
+            myGame.gameboard.turn = 2;
+            console.log(myGame.gameboard.turn);
           }
-          console.log(myGame.gameboard);
         },
       };
     }
@@ -121,6 +129,11 @@ startNewGame.addEventListener("click", () => {
           (myGame.gameboard.a7 === "O")
       ) {
         console.log("Player Two is winner!");
+        console.log(myGame.gameboard.turn);
+        myGame.gameboard.turn = 2;
+        console.log(myGame.gameboard.turn);
+        turnBanner.textContent =
+          "Player Two is winner! Do you want to start another game?";
       } else if (
         (myGame.gameboard.a1 === "X") &
           (myGame.gameboard.a2 === "X") &
@@ -148,8 +161,14 @@ startNewGame.addEventListener("click", () => {
           (myGame.gameboard.a7 === "X")
       ) {
         console.log("Player One is winner!");
+        console.log(myGame.gameboard.turn);
+        myGame.gameboard.turn = 3;
+        console.log(myGame.gameboard.turn);
+        turnBanner.textContent =
+          "Player Two is winner! Do you want to start another game?";
       } else {
         console.log("Next Player Turn");
+        console.log(myGame.gameboard.turn);
       }
     }
   }

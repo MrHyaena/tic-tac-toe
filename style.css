@@ -2,15 +2,30 @@ h1 {
   text-align: center;
 }
 
+#outsideBoard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  max-height: 100vh;
+}
+
 #boardContainer {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  width: 500px;
-  height: 500px;
+  grid-template-columns: repeat(3, 150px);
+  grid-template-rows: repeat(3, 150px);
+  gap: 2px;
+  flex-shrink: 1;
 }
 
 #boardContainer div {
   border-style: solid;
-  box-sizing: border-box;
+  box-shadow: 0px 0px 8px rgb(201, 165, 191);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 500%;
 }
