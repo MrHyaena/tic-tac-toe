@@ -12,15 +12,22 @@ function DOMmanipulation() {
       const square = document.createElement("div");
       const squarePosition = "a" + i;
       square.setAttribute("id", "square" + i);
+      let squareContent = 0;
       boardCointainer.appendChild(square);
 
       square.addEventListener("click", () => {
-        if (myGame.gameboard.turn == 0) {
-          square.textContent = "X";
-          myGame.playerOne.turn(squarePosition);
-        } else {
-          square.textContent = "O";
-          myGame.playerTwo.turn(squarePosition);
+        if (squareContent == 0) {
+          if (myGame.gameboard.turn == 0) {
+            square.textContent = "X";
+            myGame.playerOne.turn(squarePosition);
+            console.log(squareContent);
+            squareContent = 1;
+            console.log(squareContent);
+          } else {
+            square.textContent = "O";
+            myGame.playerTwo.turn(squarePosition);
+            squareContent = 1;
+          }
         }
       });
     }
