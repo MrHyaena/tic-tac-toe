@@ -9,9 +9,18 @@
   </head>
   <body>
     <div id="outsideBoard">
-      <h1>Tic Tac Toe</h1>
-      <button id="startNewGame">Start new game</button>
-      <h2 id="turnBanner"></h2>
+      <div class="consoleTools">
+        <h1>Tic Tac Toe</h1>
+        <button id="startNewGame">Start new game</button>
+        <div class="controler">
+          <label for="inputOne">First player name</label>
+          <input type="text" name="inputOne" id="inputOne" />
+          <label for="inputTwo">Second player name</label>
+          <input type="text" name="inputTwo" id="inputTwo" />
+        </div>
+        <h2 id="turnBanner"></h2>
+        <div id="playerStats"></div>
+      </div>
       <div id="boardContainer"></div>
     </div>
   </body>

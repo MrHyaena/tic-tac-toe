@@ -1,7 +1,10 @@
 const startNewGame = document.querySelector("#startNewGame");
 const turnBanner = document.querySelector("#turnBanner");
+const controler = document.querySelector("#controler");
 turnBanner.textContent = "Press start button!";
 startNewGame.addEventListener("click", () => {
+  let playerOneName = document.getElementById("inputOne").value;
+  let playerTwoName = document.getElementById("inputTwo").value;
   let myGame = createGame();
 
   // DOM manipulation
@@ -9,6 +12,15 @@ startNewGame.addEventListener("click", () => {
     const boardCointainer = document.querySelector("#boardContainer");
     turnBanner.textContent = "Player One's turn!";
     createBoardDOM();
+    const playerStats = document.querySelector("#playerStats");
+
+    const playerOneStats = document.createElement("h3");
+    playerOneStats.textContent = "PLAYER ONE: " + playerOneName + " | X";
+    playerStats.appendChild(playerOneStats);
+
+    const playerTwoStats = document.createElement("h3");
+    playerTwoStats.textContent = "PLAYER TWO: " + playerTwoName + " | O";
+    playerStats.appendChild(playerTwoStats);
 
     function createBoardDOM() {
       boardCointainer.innerHTML = "";
@@ -29,6 +41,7 @@ startNewGame.addEventListener("click", () => {
                 myGame.playerOne.turn(squarePosition);
 
                 squareContent = 1;
+                console.log(myGame.playerOne.name);
 
                 square.style.backgroundColor = "rgb(201, 165, 191)";
               } else if (myGame.gameboard.turn == 1) {
@@ -54,8 +67,8 @@ startNewGame.addEventListener("click", () => {
   function createGame() {
     return {
       gameboard: createBoard(),
-      playerOne: createPlayer("X"),
-      playerTwo: createPlayer("O"),
+      playerOne: createPlayer("X", playerOneName),
+      playerTwo: createPlayer("O", playerTwoName),
       DOM: DOMmanipulation(),
     };
 
@@ -79,9 +92,10 @@ startNewGame.addEventListener("click", () => {
     // Creates a player object with symbol and function
     // for playing one turn
 
-    function createPlayer(playerSymbol) {
+    function createPlayer(playerSymbol, playerName) {
       return {
         marker: playerSymbol,
+        name: playerName,
         turn(field) {
           myGame.gameboard[field] = this.marker;
           if (myGame.gameboard.turn == 0) {

@@ -3,7 +3,7 @@ h1 {
 }
 
 #outsideBoard {
-  display: flex;
+  display: grid;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -13,8 +13,8 @@ h1 {
 
 #boardContainer {
   display: grid;
-  grid-template-columns: repeat(3, 150px);
-  grid-template-rows: repeat(3, 150px);
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
   gap: 2px;
   flex-shrink: 1;
 }
