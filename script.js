@@ -37,7 +37,7 @@ startNewGame.addEventListener("click", () => {
             if (squareContent == 0) {
               if (myGame.gameboard.turn == 0) {
                 square.textContent = "X";
-                turnBanner.textContent = "Player One's turn!";
+                turnBanner.textContent = "Player Two's turn!";
                 myGame.playerOne.turn(squarePosition);
 
                 squareContent = 1;
@@ -46,7 +46,7 @@ startNewGame.addEventListener("click", () => {
                 square.style.backgroundColor = "rgb(201, 165, 191)";
               } else if (myGame.gameboard.turn == 1) {
                 square.textContent = "O";
-                turnBanner.textContent = "Player Two's turn!";
+                turnBanner.textContent = "Player One's turn!";
                 myGame.playerTwo.turn(squarePosition);
                 squareContent = 1;
                 square.style.backgroundColor = "rgb(201, 165, 191)";
@@ -179,7 +179,7 @@ startNewGame.addEventListener("click", () => {
         myGame.gameboard.turn = 3;
         console.log(myGame.gameboard.turn);
         turnBanner.textContent =
-          "Player Two is winner! Do you want to start another game?";
+          "Player One is winner! Do you want to start another game?";
       } else {
         console.log("Next Player Turn");
         console.log(myGame.gameboard.turn);
