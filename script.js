@@ -86,54 +86,54 @@ function createGame() {
       (myGame.gameboard.a1 === "O") &
         (myGame.gameboard.a2 === "O") &
         (myGame.gameboard.a3 === "O") ||
-      (myGame.gameboard.b1 === "O") &
-        (myGame.gameboard.b2 === "O") &
-        (myGame.gameboard.b3 === "O") ||
-      (myGame.gameboard.c1 === "O") &
-        (myGame.gameboard.c2 === "O") &
-        (myGame.gameboard.c3 === "O") ||
+      (myGame.gameboard.a4 === "O") &
+        (myGame.gameboard.a5 === "O") &
+        (myGame.gameboard.a6 === "O") ||
+      (myGame.gameboard.a7 === "O") &
+        (myGame.gameboard.a8 === "O") &
+        (myGame.gameboard.a9 === "O") ||
       (myGame.gameboard.a1 === "O") &
-        (myGame.gameboard.b1 === "O") &
-        (myGame.gameboard.c1 === "O") ||
+        (myGame.gameboard.a4 === "O") &
+        (myGame.gameboard.a7 === "O") ||
       (myGame.gameboard.a2 === "O") &
-        (myGame.gameboard.b2 === "O") &
-        (myGame.gameboard.c2 === "O") ||
+        (myGame.gameboard.a5 === "O") &
+        (myGame.gameboard.a8 === "O") ||
       (myGame.gameboard.a3 === "O") &
-        (myGame.gameboard.b3 === "O") &
-        (myGame.gameboard.c3 === "O") ||
+        (myGame.gameboard.a6 === "O") &
+        (myGame.gameboard.a9 === "O") ||
       (myGame.gameboard.a1 === "O") &
-        (myGame.gameboard.b2 === "O") &
-        (myGame.gameboard.c3 === "O") ||
-      (myGame.gameboard.c1 === "O") &
-        (myGame.gameboard.b2 === "O") &
-        (myGame.gameboard.a3 === "O")
+        (myGame.gameboard.a5 === "O") &
+        (myGame.gameboard.a9 === "O") ||
+      (myGame.gameboard.a3 === "O") &
+        (myGame.gameboard.a5 === "O") &
+        (myGame.gameboard.a7 === "O")
     ) {
       console.log("Player Two is winner!");
     } else if (
       (myGame.gameboard.a1 === "X") &
         (myGame.gameboard.a2 === "X") &
         (myGame.gameboard.a3 === "X") ||
-      (myGame.gameboard.b1 === "X") &
-        (myGame.gameboard.b2 === "X") &
-        (myGame.gameboard.b3 === "X") ||
-      (myGame.gameboard.c1 === "X") &
-        (myGame.gameboard.c2 === "X") &
-        (myGame.gameboard.c3 === "X") ||
+      (myGame.gameboard.a4 === "X") &
+        (myGame.gameboard.a5 === "X") &
+        (myGame.gameboard.a6 === "X") ||
+      (myGame.gameboard.a7 === "X") &
+        (myGame.gameboard.a8 === "X") &
+        (myGame.gameboard.a9 === "X") ||
       (myGame.gameboard.a1 === "X") &
-        (myGame.gameboard.b1 === "X") &
-        (myGame.gameboard.c1 === "X") ||
+        (myGame.gameboard.a4 === "X") &
+        (myGame.gameboard.a7 === "X") ||
       (myGame.gameboard.a2 === "X") &
-        (myGame.gameboard.b2 === "X") &
-        (myGame.gameboard.c2 === "X") ||
+        (myGame.gameboard.a5 === "X") &
+        (myGame.gameboard.a8 === "X") ||
       (myGame.gameboard.a3 === "X") &
-        (myGame.gameboard.b3 === "X") &
-        (myGame.gameboard.c3 === "X") ||
+        (myGame.gameboard.a6 === "X") &
+        (myGame.gameboard.a9 === "X") ||
       (myGame.gameboard.a1 === "X") &
-        (myGame.gameboard.b2 === "X") &
-        (myGame.gameboard.c3 === "X") ||
-      (myGame.gameboard.c1 === "X") &
-        (myGame.gameboard.b2 === "X") &
-        (myGame.gameboard.a3 === "X")
+        (myGame.gameboard.a5 === "X") &
+        (myGame.gameboard.a9 === "X") ||
+      (myGame.gameboard.a3 === "X") &
+        (myGame.gameboard.a5 === "X") &
+        (myGame.gameboard.a7 === "X")
     ) {
       console.log("Player One is winner!");
     } else {
