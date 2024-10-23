@@ -178,9 +178,20 @@ startNewGame.addEventListener("click", () => {
         turnBanner.textContent =
           myGame.playerOne.name +
           " is winner! Do you want to start another game?";
-      } else {
-        console.log("Next Player Turn");
-        console.log(myGame.gameboard.turn);
+      } else if (
+        (myGame.gameboard.a1 === "X" || myGame.gameboard.a1 === "O") &
+        (myGame.gameboard.a2 === "X" || myGame.gameboard.a2 === "O") &
+        (myGame.gameboard.a3 === "X" || myGame.gameboard.a3 === "O") &
+        (myGame.gameboard.a4 === "X" || myGame.gameboard.a4 === "O") &
+        (myGame.gameboard.a5 === "X" || myGame.gameboard.a5 === "O") &
+        (myGame.gameboard.a6 === "X" || myGame.gameboard.a6 === "O") &
+        (myGame.gameboard.a7 === "X" || myGame.gameboard.a7 === "O") &
+        (myGame.gameboard.a8 === "X" || myGame.gameboard.a8 === "O") &
+        (myGame.gameboard.a9 === "X" || myGame.gameboard.a9 === "O")
+      ) {
+        myGame.gameboard.turn = 3;
+
+        turnBanner.textContent = "DRAW! Do you want to start another game?";
       }
     }
   }
