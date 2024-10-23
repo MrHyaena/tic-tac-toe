@@ -3,6 +3,7 @@ const turnBanner = document.querySelector("#turnBanner");
 const controler = document.querySelector("#controler");
 const boardColumn = document.querySelector("#boardColumn");
 turnBanner.textContent = "Press start button!";
+
 startNewGame.addEventListener("click", () => {
   let playerOneName = document.getElementById("inputOne").value;
   let playerTwoName = document.getElementById("inputTwo").value;
@@ -10,18 +11,14 @@ startNewGame.addEventListener("click", () => {
 
   // DOM manipulation
   function DOMmanipulation() {
-    const boardCointainer = document.querySelector("#boardContainer");
-    turnBanner.textContent = "Player One's turn!";
+    const boardDiv = document.querySelector("#boardDiv");
+    const boardCointainer = document.createElement("div");
+    boardDiv.innerHTML = "";
+    boardCointainer.setAttribute("id", "boardContainer");
+    boardDiv.appendChild(boardCointainer);
+    turnBanner.textContent = playerOneName + "'s turn!";
     createBoardDOM();
     const playerStats = document.querySelector("#playerStats");
-
-    const playerOneStats = document.createElement("h3");
-    playerOneStats.textContent = playerOneName + " | X";
-    playerStats.appendChild(playerOneStats);
-
-    const playerTwoStats = document.createElement("h3");
-    playerTwoStats.textContent = playerTwoName + " | O";
-    playerStats.appendChild(playerTwoStats);
 
     function createBoardDOM() {
       boardCointainer.innerHTML = "";
@@ -38,7 +35,7 @@ startNewGame.addEventListener("click", () => {
             if (squareContent == 0) {
               if (myGame.gameboard.turn == 0) {
                 square.textContent = "X";
-                turnBanner.textContent = "Player Two's turn!";
+                turnBanner.textContent = myGame.playerTwo.name + "'s turn!";
                 myGame.playerOne.turn(squarePosition);
 
                 squareContent = 1;
@@ -47,7 +44,7 @@ startNewGame.addEventListener("click", () => {
                 square.style.backgroundColor = "rgb(72, 58, 227)";
               } else if (myGame.gameboard.turn == 1) {
                 square.textContent = "O";
-                turnBanner.textContent = "Player One's turn!";
+                turnBanner.textContent = myGame.playerOne.name + "'s turn!";
                 myGame.playerTwo.turn(squarePosition);
                 squareContent = 1;
                 square.style.backgroundColor = "rgb(72, 58, 227)";
@@ -148,7 +145,8 @@ startNewGame.addEventListener("click", () => {
         myGame.gameboard.turn = 2;
         console.log(myGame.gameboard.turn);
         turnBanner.textContent =
-          "Player Two is winner! Do you want to start another game?";
+          myGame.playerTwo.name +
+          " is winner! Do you want to start another game?";
       } else if (
         (myGame.gameboard.a1 === "X") &
           (myGame.gameboard.a2 === "X") &
@@ -175,12 +173,11 @@ startNewGame.addEventListener("click", () => {
           (myGame.gameboard.a5 === "X") &
           (myGame.gameboard.a7 === "X")
       ) {
-        console.log("Player One is winner!");
-        console.log(myGame.gameboard.turn);
         myGame.gameboard.turn = 3;
-        console.log(myGame.gameboard.turn);
+
         turnBanner.textContent =
-          "Player One is winner! Do you want to start another game?";
+          myGame.playerOne.name +
+          " is winner! Do you want to start another game?";
       } else {
         console.log("Next Player Turn");
         console.log(myGame.gameboard.turn);

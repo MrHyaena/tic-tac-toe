@@ -39,7 +39,7 @@ button {
   align-self: center;
   padding: 20px 50px;
   font-size: 30px;
-  background-color: var(--deep-blue);
+  background-color: rgb(39, 62, 146);
   border-radius: 20px;
   border-style: none;
   box-shadow: 0px 0px 3px var(--deep-blue);
@@ -50,6 +50,16 @@ button {
 h1 {
   text-transform: uppercase;
   font-size: 40px;
+  background-color: var(--deep-blue);
+  width: 80%;
+  align-self: center;
+  padding: 20px 30px;
+  color: white;
+  border-radius: 20px;
+  border-style: none;
+  box-shadow: 0px 0px 3px var(--deep-blue);
+  height: 200px;
+  align-content: center;
 }
 
 label,
@@ -70,8 +80,8 @@ label,
 
 #boardContainer {
   display: grid;
-  grid-template-columns: repeat(3, 100px);
-  grid-template-rows: repeat(3, 100px);
+  grid-template-columns: repeat(3, 150px);
+  grid-template-rows: repeat(3, 150px);
   flex-shrink: 1;
 
   gap: 5px;
@@ -89,6 +99,7 @@ label,
   background-color: white;
   box-shadow: 0px 0px 5px var(--deep-blue);
   color: white;
+  border-radius: 10px;
 }
 
 input {
@@ -98,6 +109,7 @@ input {
   border: 1px solid rgb(137, 144, 176);
   font-size: 20px;
   background-color: rgb(240, 240, 240);
+  text-transform: capitalize;
 }
 
 label {
