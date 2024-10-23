@@ -109,7 +109,6 @@ input {
   border: 1px solid rgb(137, 144, 176);
   font-size: 20px;
   background-color: rgb(240, 240, 240);
-  text-transform: capitalize;
 }
 
 label {
