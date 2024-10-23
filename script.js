@@ -1,6 +1,7 @@
 const startNewGame = document.querySelector("#startNewGame");
 const turnBanner = document.querySelector("#turnBanner");
 const controler = document.querySelector("#controler");
+const boardColumn = document.querySelector("#boardColumn");
 turnBanner.textContent = "Press start button!";
 startNewGame.addEventListener("click", () => {
   let playerOneName = document.getElementById("inputOne").value;
@@ -15,11 +16,11 @@ startNewGame.addEventListener("click", () => {
     const playerStats = document.querySelector("#playerStats");
 
     const playerOneStats = document.createElement("h3");
-    playerOneStats.textContent = "PLAYER ONE: " + playerOneName + " | X";
+    playerOneStats.textContent = playerOneName + " | X";
     playerStats.appendChild(playerOneStats);
 
     const playerTwoStats = document.createElement("h3");
-    playerTwoStats.textContent = "PLAYER TWO: " + playerTwoName + " | O";
+    playerTwoStats.textContent = playerTwoName + " | O";
     playerStats.appendChild(playerTwoStats);
 
     function createBoardDOM() {
@@ -43,13 +44,13 @@ startNewGame.addEventListener("click", () => {
                 squareContent = 1;
                 console.log(myGame.playerOne.name);
 
-                square.style.backgroundColor = "rgb(201, 165, 191)";
+                square.style.backgroundColor = "rgb(72, 58, 227)";
               } else if (myGame.gameboard.turn == 1) {
                 square.textContent = "O";
                 turnBanner.textContent = "Player One's turn!";
                 myGame.playerTwo.turn(squarePosition);
                 squareContent = 1;
-                square.style.backgroundColor = "rgb(201, 165, 191)";
+                square.style.backgroundColor = "rgb(72, 58, 227)";
               }
             }
           }
